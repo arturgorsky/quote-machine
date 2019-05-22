@@ -16,7 +16,9 @@ class QuoteMachine extends Component {
         this.setState({
           quotes: response.data.quotes
         });
-      });
+      })
+      .then(() => this.getRandomQuote())
+      .catch(error => console.error(error));
   }
 
   getRandomQuote = event => {
@@ -30,15 +32,27 @@ class QuoteMachine extends Component {
   render() {
     return (
       <div>
-        <div className="container teal lighten-2" onLoad={this.getRandomQuote}>
-          <h1 className="flow-text">Quote machine</h1>
-          <div className="col-12">{this.state.randomQuote}</div>
-          <div className="right-align">{this.state.author}</div>
+        <div className="container" onLoad={this.getRandomQuote}>
+          <h1 className="flow-text" id="title">
+            Quote machine
+          </h1>
+          <div className="col-12" id="quote">
+            {this.state.randomQuote}
+          </div>
+          <div className="right-align" id="author">
+            {"-" + this.state.author}
+          </div>
           <div className="row">
-            <div className="btn indigo col s2 ">Facebook</div>
-            <div className="btn indigo col s2 ">Twitter</div>
+            <div className="btn indigo col s2 ">
+              <i className="fab fa-facebook-f" />Facebook
+            </div>
+            <div className="btn indigo col s2 ">
+              <i className="fab fa-twitter" />
+              Twitter
+            </div>
+
             <div
-              className="btn indigo col s2 right"
+              className="btn indigo col s3 right"
               onClick={this.getRandomQuote}
             >
               New Quote
