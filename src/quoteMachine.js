@@ -21,9 +21,15 @@ class QuoteMachine extends Component {
       .catch(error => console.error(error));
   }
 
+  tweetQuote = event => {
+    const url =
+      "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" +
+      encodeURI('"' + this.state.randomQuote + '"\n-' + this.state.author);
+    window.open(url);
+  };
+
   getRandomQuote = event => {
     const randomVal = Math.floor(Math.random() * this.state.quotes.length);
-    console.log(randomVal);
     this.setState({
       randomQuote: this.state.quotes[randomVal].quote,
       author: this.state.quotes[randomVal].author
@@ -32,28 +38,37 @@ class QuoteMachine extends Component {
   render() {
     return (
       <div>
-        <div className="container" onLoad={this.getRandomQuote}>
+        <div className="container" id="quote-box">
           <h1 className="flow-text" id="title">
             Quote machine
           </h1>
-          <div className="col-12" id="quote">
+          <div className="col-12" id="text">
             {this.state.randomQuote}
           </div>
           <div className="right-align" id="author">
             {"-" + this.state.author}
           </div>
           <div className="row">
-            <div className="btn indigo col s2 ">
-              <i className="fab fa-facebook-f" />Facebook
+            <div className="btn col s2 " title="Share on Facebook">
+              <i className="fab fa-facebook-f" />
+              <span className="hide-on-med-and-down">Facebook</span>
             </div>
-            <div className="btn indigo col s2 ">
+            <a
+              className="btn col s2 "
+              id="tweet-quote"
+              href="# "
+              onClick={this.tweetQuote}
+              title="Tweet quote"
+            >
               <i className="fab fa-twitter" />
-              Twitter
-            </div>
+              <span className="hide-on-med-and-down">Twitter</span>
+            </a>
 
             <div
-              className="btn indigo col s3 right"
+              className="btn col s3 right"
               onClick={this.getRandomQuote}
+              id="new-quote"
+              title="Load new quote"
             >
               New Quote
             </div>

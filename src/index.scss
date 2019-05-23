@@ -1,3 +1,5 @@
+@import "sass/materialize.scss";
+
 html {
   min-height: 100%;
 }
@@ -10,6 +12,8 @@ html {
 }
 .btn {
   margin: 5px;
+  font-size: 10px;
+  @extend .indigo, .lighten-1;
 }
 
 body {
@@ -33,6 +37,14 @@ code {
   margin-top: 0px;
 }
 
-.btn {
-  font-size: 10px;
+#text {
+  font-size: 25px;
+  margin: 20px;
+  font-style: italic;
+}
+
+#author {
+  font-size: 30px;
+  margin: 20px;
+  font-style: oblique;
 }
