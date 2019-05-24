@@ -5,7 +5,21 @@ class QuoteMachine extends Component {
   state = {
     quotes: [],
     randomQuote: "",
-    author: ""
+    author: "",
+    colors: [
+      "#16a085",
+      "#27ae60",
+      "#2c3e50",
+      "#f39c12",
+      "#e74c3c",
+      "#9b59b6",
+      "#FB6964",
+      "#342224",
+      "#472E32",
+      "#BDBB99",
+      "#77B1A9",
+      "#73A857"
+    ]
   };
   componentDidMount() {
     axios
@@ -35,6 +49,16 @@ class QuoteMachine extends Component {
       author: this.state.quotes[randomVal].author
     });
   };
+
+  setColor = () => {
+    const newColor = this.state.colors[
+      Math.floor(Math.random() * this.state.colors.length)
+    ];
+    let appNode = document.getElementById("body");
+    appNode.style.backgroundColor = newColor;
+    appNode.style.color = newColor;
+  };
+
   render() {
     return (
       <div>
@@ -66,7 +90,10 @@ class QuoteMachine extends Component {
 
             <div
               className="btn col s3 right"
-              onClick={this.getRandomQuote}
+              onClick={() => {
+                this.getRandomQuote();
+                this.setColor();
+              }}
               id="new-quote"
               title="Load new quote"
             >

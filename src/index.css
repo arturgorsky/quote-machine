@@ -5,12 +5,13 @@ html {
   margin-top: 15%;
   padding: 10px;
   max-width: 600px;
-  background-color: burlywood;
+  background-color: white;
   border-radius: 10px;
 }
 .btn {
   margin: 5px;
   font-size: 10px;
+  background-color: rgb(88, 88, 236);
 }
 
 body {
