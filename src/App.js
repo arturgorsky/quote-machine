@@ -4,8 +4,8 @@ import QuoteMachine from "./quoteMachine";
 class App extends Component {
   render() {
     return (
-      <div className="App" id="App">
-        <QuoteMachine />
+      <div className="App" id="app">
+        <QuoteMachine id="machine" />
       </div>
     );
   }
