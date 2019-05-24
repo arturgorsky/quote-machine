@@ -60,6 +60,24 @@ class QuoteMachine extends Component {
     appNode.style.color = newColor;
   };
 
+  animateOpacity = e => {
+    var element = document.getElementById("quote-box");
+    element.addEventListener(
+      "click",
+      function(e) {
+        e.preventDefault();
+        element.classList.remove("quote-box-animation");
+        void element.offsetWidth;
+        element.classList.add("quote-box-animation");
+      },
+      false
+    );
+  };
+
+  addOpacityAnimation = () => {
+    document.getElementById("quote-box").classList.add("quote-box-animation");
+  };
+
   render() {
     return (
       <div>
@@ -94,6 +112,8 @@ class QuoteMachine extends Component {
               onClick={() => {
                 this.getRandomQuote();
                 this.setColor();
+                this.addOpacityAnimation();
+                this.animateOpacity();
               }}
               id="new-quote"
               title="Load new quote"

@@ -1,6 +1,27 @@
 html {
   min-height: 100%;
 }
+
+@keyframes example {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.quote-box-animation {
+  animation-name: example;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-int;
+}
+
 .container {
   margin-top: 15%;
   padding: 10px;
@@ -22,7 +43,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
-  transition: background-color 1s;
+  transition: background-color 1.5s;
+  transition-delay: 0.5s;
 }
 
 code {
@@ -46,8 +68,4 @@ code {
   font-size: 30px;
   margin: 20px;
   font-style: oblique;
-}
-
-#quote-box {
-  transition: height 1s;
 }
