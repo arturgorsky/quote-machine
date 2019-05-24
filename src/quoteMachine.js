@@ -33,6 +33,7 @@ class QuoteMachine extends Component {
       })
       .then(() => this.getRandomQuote())
       .catch(error => console.error(error));
+    this.setColor();
   }
 
   tweetQuote = event => {
