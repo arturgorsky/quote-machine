@@ -31,10 +31,15 @@ class App extends Component {
       ]
     });
   };
-  render() {
+
+  applyColorChange = () => {
     document.getElementById(
       "body"
     ).style.backgroundColor = this.state.currentColor;
+    document.getElementById("body").style.color = this.state.currentColor;
+  };
+  render() {
+    this.applyColorChange();
     return (
       <div className="App" id="app">
         <QuoteMachine id="machine" changeColor={this.changeColor} />
