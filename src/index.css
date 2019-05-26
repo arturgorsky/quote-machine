@@ -4,13 +4,8 @@ html {
 
 @keyframes example {
   0% {
-    opacity: 1;
-  }
-
-  50% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
@@ -19,7 +14,7 @@ html {
 .quote-box-animation {
   animation-name: example;
   animation-duration: 1.5s;
-  animation-timing-function: ease-int;
+  animation-timing-function: ease-out;
 }
 
 .container {
@@ -44,7 +39,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
   transition: background-color 1.5s;
-  transition-delay: 0.5s;
 }
 
 code {
